@@ -1,0 +1,38 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option enforcedvalues='true' name='Action' required='true' values='start,stop' />
+        <option enforcedvalues='true' name='Panel' required='true' value='logrono-euigs' values='logrono-es,logrono-euigs,logrono-fr,logrono-it,madrid-es,madrid-euigs,madrid-fr,madrid-it' />
+      </options>
+    </context>
+    <description>Operations from APICB for SlimCost</description>
+    <dispatch>
+      <excludePrecedence>true</excludePrecedence>
+      <keepgoing>true</keepgoing>
+      <rankOrder>ascending</rankOrder>
+      <threadcount>1</threadcount>
+    </dispatch>
+    <executionEnabled>true</executionEnabled>
+    <group>Infrastructure/Subjobs</group>
+    <id>420eafd9-f874-4cd4-a90e-332059f53362</id>
+    <loglevel>INFO</loglevel>
+    <name>Operations SlimCost</name>
+    <nodeFilterEditable>true</nodeFilterEditable>
+    <nodefilters>
+      <filter>tags: ${option.Target}</filter>
+    </nodefilters>
+    <nodesSelectedByDefault>true</nodesSelectedByDefault>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <node-step-plugin type='localexec'>
+          <configuration>
+            <entry key='command' value='/usr/bin/php /opt/scripts/cloudbuilder/arsys_admiral.php ${option.Panel} ${option.Action} ${node.cbname}' />
+          </configuration>
+        </node-step-plugin>
+      </command>
+    </sequence>
+    <uuid>420eafd9-f874-4cd4-a90e-332059f53362</uuid>
+  </job>
+</joblist>

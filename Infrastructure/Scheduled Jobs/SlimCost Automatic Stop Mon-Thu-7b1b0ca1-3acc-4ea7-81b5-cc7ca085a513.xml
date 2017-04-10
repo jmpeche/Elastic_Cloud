@@ -1,0 +1,46 @@
+<joblist>
+  <job>
+    <description>SlimCost Automatic Stop Monday-Thursday</description>
+    <executionEnabled>true</executionEnabled>
+    <group>Infrastructure/Scheduled Jobs</group>
+    <id>7b1b0ca1-3acc-4ea7-81b5-cc7ca085a513</id>
+    <loglevel>INFO</loglevel>
+    <name>SlimCost Automatic Stop Mon-Thu</name>
+    <nodeFilterEditable>true</nodeFilterEditable>
+    <schedule>
+      <month month='*' />
+      <time hour='18-20' minute='00,30' seconds='0' />
+      <weekday day='MON-THU' />
+      <year year='*' />
+    </schedule>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='true' strategy='node-first'>
+      <command>
+        <description>Stop Logrono EUIGS Servers</description>
+        <jobref group='Infrastructure/Subjobs' name='Operations SlimCost' nodeStep='true'>
+          <arg line='-Action stop -Panel logrono-euigs -Target Common+SlimCost' />
+        </jobref>
+      </command>
+      <command>
+        <description>Stop Logrono AS Servers</description>
+        <jobref group='Infrastructure/Subjobs' name='Operations SlimCost' nodeStep='true'>
+          <arg line='-Action stop -Panel logrono-es -Target AS+SlimCost' />
+        </jobref>
+      </command>
+      <command>
+        <description>Stop Logrono EF Servers</description>
+        <jobref group='Infrastructure/Subjobs' name='Operations SlimCost' nodeStep='true'>
+          <arg line='-Action stop -Panel logrono-fr -Target EF+SlimCost' />
+        </jobref>
+      </command>
+      <command>
+        <description>Stop Logrono CT Servers</description>
+        <jobref group='Infrastructure/Subjobs' name='Operations SlimCost' nodeStep='true'>
+          <arg line='-Action stop -Panel logrono-it -Target CT+SlimCost' />
+        </jobref>
+      </command>
+    </sequence>
+    <timeout>25m</timeout>
+    <uuid>7b1b0ca1-3acc-4ea7-81b5-cc7ca085a513</uuid>
+  </job>
+</joblist>

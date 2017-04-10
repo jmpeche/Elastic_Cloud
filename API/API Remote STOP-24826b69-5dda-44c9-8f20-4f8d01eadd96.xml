@@ -1,0 +1,45 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option name='Panel' required='true'>
+          <description>Panel</description>
+        </option>
+      </options>
+    </context>
+    <description>API Remote STOP</description>
+    <dispatch>
+      <excludePrecedence>true</excludePrecedence>
+      <keepgoing>false</keepgoing>
+      <rankOrder>ascending</rankOrder>
+      <threadcount>1</threadcount>
+    </dispatch>
+    <executionEnabled>true</executionEnabled>
+    <group>API</group>
+    <id>24826b69-5dda-44c9-8f20-4f8d01eadd96</id>
+    <loglevel>INFO</loglevel>
+    <multipleExecutions>true</multipleExecutions>
+    <name>API Remote STOP</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <nodefilters>
+      <filter>hostname: ${option.Target}</filter>
+    </nodefilters>
+    <nodesSelectedByDefault>true</nodesSelectedByDefault>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <node-step-plugin type='localexec'>
+          <configuration>
+            <entry key='command' value='/usr/bin/php /opt/scripts/cloudbuilder/arsys_admiral.php ${option.Panel} stop ${node.cbname}' />
+          </configuration>
+        </node-step-plugin>
+      </command>
+      <pluginConfig>
+        <WorkflowStrategy>
+          <node-first />
+        </WorkflowStrategy>
+      </pluginConfig>
+    </sequence>
+    <uuid>24826b69-5dda-44c9-8f20-4f8d01eadd96</uuid>
+  </job>
+</joblist>

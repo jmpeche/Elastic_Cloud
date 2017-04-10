@@ -1,0 +1,27 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option name='Host' required='true' />
+        <option name='Port' required='true' value='22' />
+      </options>
+    </context>
+    <description>Checking server availability</description>
+    <executionEnabled>true</executionEnabled>
+    <group>API/Subjobs</group>
+    <id>efb53082-8e01-4014-ae83-4f4dc988b042</id>
+    <loglevel>INFO</loglevel>
+    <multipleExecutions>true</multipleExecutions>
+    <name>Check_Server_UP</name>
+    <nodeFilterEditable>true</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <description>Checking server status</description>
+        <scriptargs>${option.Host} ${option.Port}</scriptargs>
+        <scripturl>http://jobresources.euigs.es/elastic_cloud/scripts/check_server.sh</scripturl>
+      </command>
+    </sequence>
+    <uuid>efb53082-8e01-4014-ae83-4f4dc988b042</uuid>
+  </job>
+</joblist>

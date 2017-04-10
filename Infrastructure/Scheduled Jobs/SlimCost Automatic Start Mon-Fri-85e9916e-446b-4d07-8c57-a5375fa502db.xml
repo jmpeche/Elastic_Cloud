@@ -1,0 +1,39 @@
+<joblist>
+  <job>
+    <description>SlimCost Automatic Start Monday-Friday</description>
+    <executionEnabled>true</executionEnabled>
+    <group>Infrastructure/Scheduled Jobs</group>
+    <id>85e9916e-446b-4d07-8c57-a5375fa502db</id>
+    <loglevel>INFO</loglevel>
+    <name>SlimCost Automatic Start Mon-Fri</name>
+    <nodeFilterEditable>true</nodeFilterEditable>
+    <schedule>
+      <month month='*' />
+      <time hour='09' minute='00' seconds='0' />
+      <weekday day='FRI,MON,THU,TUE,WED' />
+      <year year='*' />
+    </schedule>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='true' strategy='node-first'>
+      <command>
+        <description>Start Logrono AS Selenium Servers</description>
+        <jobref group='Infrastructure/Subjobs' name='Operations SlimCost' nodeStep='true'>
+          <arg line='-Action start -Panel logrono-es -Target Selenium+AS+SlimCost' />
+        </jobref>
+      </command>
+      <command>
+        <description>Start Logrono EF Selenium Servers</description>
+        <jobref group='Infrastructure/Subjobs' name='Operations SlimCost' nodeStep='true'>
+          <arg line='-Action start -Panel logrono-fr -Target Selenium+EF+SlimCost' />
+        </jobref>
+      </command>
+      <pluginConfig>
+        <WorkflowStrategy>
+          <node-first />
+        </WorkflowStrategy>
+      </pluginConfig>
+    </sequence>
+    <timeout>15m</timeout>
+    <uuid>85e9916e-446b-4d07-8c57-a5375fa502db</uuid>
+  </job>
+</joblist>

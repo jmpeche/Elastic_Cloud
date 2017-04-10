@@ -1,0 +1,28 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option enforcedvalues='true' name='Action' required='true' values='assignPrivateNetworkInterface,cloneServer,deletePrivateNetworkInterface,listAppliance,listBackup,start,stop' />
+        <option enforcedvalues='true' name='Panel' required='true' value='logrono-euigs' values='logrono-es,logrono-euigs,logrono-fr,logrono-it,madrid-es,madrid-euigs,madrid-fr,madrid-it' />
+        <option name='Server' />
+        <option enforcedvalues='true' name='VLAN' values='common,dev,es,fr,it,pre' />
+        <option name='newServer' />
+      </options>
+    </context>
+    <description>Operations from APICB</description>
+    <executionEnabled>true</executionEnabled>
+    <group>Infrastructure</group>
+    <id>25f7f936-af21-43f6-a35c-8f6f41077ea4</id>
+    <loglevel>INFO</loglevel>
+    <name>Infra Operations</name>
+    <nodeFilterEditable>true</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <scriptargs>/opt/scripts/cloudbuilder/arsys_admiral.php ${option.Panel} ${option.Action} ${option.Server} ${option.VLAN} ${option.newServer}</scriptargs>
+        <scriptfile>/usr/bin/php</scriptfile>
+      </command>
+    </sequence>
+    <uuid>25f7f936-af21-43f6-a35c-8f6f41077ea4</uuid>
+  </job>
+</joblist>

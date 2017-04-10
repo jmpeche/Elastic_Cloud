@@ -1,0 +1,29 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option enforcedvalues='true' name='Action' required='true' value='stop' valuesUrl='http://jobresources.euigs.es/elastic_cloud/resources/actions.json'>
+          <description>Action</description>
+        </option>
+        <option enforcedvalues='true' name='Panel' required='true' value='logrono-es' values='logrono-es' />
+        <option enforcedvalues='true' name='Target' required='true' valuesUrl='http://jobresources.euigs.es/elastic_cloud/resources/targets-AS.json' />
+      </options>
+    </context>
+    <description>Operations</description>
+    <executionEnabled>true</executionEnabled>
+    <group>Spain</group>
+    <id>fcffa5e5-d547-4f6b-8e73-bf357af4d6c7</id>
+    <loglevel>INFO</loglevel>
+    <name>Operations</name>
+    <nodeFilterEditable>true</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <jobref group='Infrastructure/Subjobs' name='Operations SlimCost Node' nodeStep='true'>
+          <arg line='-Action ${option.Action} -Panel ${option.Panel} -Target ${option.Target}' />
+        </jobref>
+      </command>
+    </sequence>
+    <uuid>fcffa5e5-d547-4f6b-8e73-bf357af4d6c7</uuid>
+  </job>
+</joblist>

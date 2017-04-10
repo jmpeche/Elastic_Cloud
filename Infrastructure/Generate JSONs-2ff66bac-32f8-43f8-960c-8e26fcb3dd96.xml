@@ -1,0 +1,20 @@
+<joblist>
+  <job>
+    <description>Generate JSONs for node options provider</description>
+    <executionEnabled>true</executionEnabled>
+    <group>Infrastructure</group>
+    <id>2ff66bac-32f8-43f8-960c-8e26fcb3dd96</id>
+    <loglevel>INFO</loglevel>
+    <name>Generate JSONs</name>
+    <nodeFilterEditable>true</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <scriptargs />
+        <scriptfile>/opt/scripts/rundeck/json_nodesgenerator.sh</scriptfile>
+      </command>
+    </sequence>
+    <timeout>30</timeout>
+    <uuid>2ff66bac-32f8-43f8-960c-8e26fcb3dd96</uuid>
+  </job>
+</joblist>

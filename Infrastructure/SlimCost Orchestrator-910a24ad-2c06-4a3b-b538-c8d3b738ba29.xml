@@ -1,0 +1,31 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option enforcedvalues='true' name='Action' required='true' value='stop' values='start,stop'>
+          <description>Action</description>
+        </option>
+        <option enforcedvalues='true' name='Panel' required='true' value='logrono-euigs' values='logrono-es,logrono-euigs,logrono-fr,logrono-it,madrid-es,madrid-euigs,madrid-fr,madrid-it'>
+          <description>Panel</description>
+        </option>
+        <option enforcedvalues='true' name='Target' value='SlimCost' values='SlimCost' />
+      </options>
+    </context>
+    <description>SlimCost Orchestrator</description>
+    <executionEnabled>true</executionEnabled>
+    <group>Infrastructure</group>
+    <id>910a24ad-2c06-4a3b-b538-c8d3b738ba29</id>
+    <loglevel>INFO</loglevel>
+    <name>SlimCost Orchestrator</name>
+    <nodeFilterEditable>true</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <jobref group='Infrastructure/Subjobs' name='Operations SlimCost' nodeStep='true'>
+          <arg line='-Action ${option.Action} -Panel ${option.Panel} -Target ${option.Target}' />
+        </jobref>
+      </command>
+    </sequence>
+    <uuid>910a24ad-2c06-4a3b-b538-c8d3b738ba29</uuid>
+  </job>
+</joblist>
