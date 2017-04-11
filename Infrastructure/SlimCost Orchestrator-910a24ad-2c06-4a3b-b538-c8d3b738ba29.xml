@@ -2,7 +2,7 @@
   <job>
     <context>
       <options preserveOrder='true'>
-        <option enforcedvalues='true' name='Action' required='true' value='stop' values='start,stop'>
+        <option enforcedvalues='true' name='Action' required='true' value='stop' valuesUrl='http://jobresources.euigs.es/elastic_cloud/resources/actions.json'>
           <description>Action</description>
         </option>
         <option enforcedvalues='true' name='Panel' required='true' value='logrono-euigs' values='logrono-es,logrono-euigs,logrono-fr,logrono-it,madrid-es,madrid-euigs,madrid-fr,madrid-it'>

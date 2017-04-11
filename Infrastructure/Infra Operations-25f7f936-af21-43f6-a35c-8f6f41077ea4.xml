@@ -2,7 +2,7 @@
   <job>
     <context>
       <options preserveOrder='true'>
-        <option enforcedvalues='true' name='Action' required='true' values='assignPrivateNetworkInterface,cloneServer,deletePrivateNetworkInterface,listAppliance,listBackup,start,stop' />
+        <option enforcedvalues='true' name='Action' required='true' values='addException,assignPrivateNetworkInterface,cloneServer,deletePrivateNetworkInterface,listAppliance,listBackup,removeException,start,stop' />
         <option enforcedvalues='true' name='Panel' required='true' value='logrono-euigs' values='logrono-es,logrono-euigs,logrono-fr,logrono-it,madrid-es,madrid-euigs,madrid-fr,madrid-it' />
         <option name='Server' />
         <option enforcedvalues='true' name='VLAN' values='common,dev,es,fr,it,pre' />
